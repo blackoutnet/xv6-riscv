@@ -63,9 +63,9 @@ void parse_line(char* line, char** xargv, int* xargc, int argc)
         }
         xargv[*xargc] = malloc(j * sizeof(char) + 1);
         strcpy(xargv[*xargc], line + i - j);
-        xargv[*xargc][j] = 0;
+        xargv[*xargc][j] = '\0';
 
-        line[i++] = 0;
+        line[i++] = '\0';
         (*xargc)++;
     }
 }
