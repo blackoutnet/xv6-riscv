@@ -8,7 +8,7 @@
 
 int get_line(char *buffer);
 void parse_line(char *line, char **xargv, int *xargc, int argc);
-void fork_exec(int* child, char**xargv, int xargc, int argc);
+void fork_exec(int *child, char **xargv, int xargc, int argc);
 void free_xargv(char **xargv, int from, int to);
 
 int main(int argc, char **argv)
@@ -17,7 +17,9 @@ int main(int argc, char **argv)
 
     for (int i = 1; i < argc; i++)
     {
-        xargv[i - 1] = argv[i];
+        uint arglen = strlen(argv[i]) + 1;
+        xargv[i - 1] = malloc(arglen);
+        strcpy(xargv[i - 1], argv[i]);
     }
     argc -= 1;
 
@@ -66,7 +68,7 @@ void parse_line(char *line, char **xargv, int *xargc, int argc)
             j++;
             i++;
         }
-        xargv[*xargc] = malloc(j * sizeof(char));
+        xargv[*xargc] = malloc(j * sizeof(char) + 1);
         strcpy(xargv[*xargc], line + i - j);
         xargv[*xargc][j] = 0;
 
@@ -75,7 +77,8 @@ void parse_line(char *line, char **xargv, int *xargc, int argc)
     }
 }
 
-void fork_exec(int* child, char**xargv, int xargc, int argc) {
+void fork_exec(int *child, char **xargv, int xargc, int argc)
+{
     *child = fork();
     if (*child == 0)
     {
