@@ -64,6 +64,7 @@ void find(char* search_dir, char* search_file)
                 strcpy(path_end, "/");
                 path_end += 1;
             }
+            *path_end = '\0';
             strcpy(path_end, filename);
 
             int fd;
