@@ -5,10 +5,10 @@
 
 #define SIEVE_LIMIT 35
 
-
 void sieve(int pipe_in);
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv)
+{
     int sieve_pipe[2];
 
     if (pipe(sieve_pipe) < 0) {
@@ -26,8 +26,8 @@ int main(int argc, char **argv) {
     exit(EXIT_SUCCESS);
 }
 
-
-void sieve(int pipe_in) {
+void sieve(int pipe_in)
+{
     int child = fork();
 
     if (child == 0) {

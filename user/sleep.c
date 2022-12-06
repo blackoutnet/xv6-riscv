@@ -3,11 +3,11 @@
 #include "user/defs.h"
 #include "user/user.h"
 
-int main(int argc, char** argv) {
-    int exit_code;
+int main(int argc, char** argv)
+{
     if (argc < 2) {
         fprintf(STDERR, "usage: sleep ticks\n");
-        exit_code = EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     } else {
         const char* input = argv[1];
         int ticks;
@@ -24,6 +24,5 @@ int main(int argc, char** argv) {
         sleep(ticks);
     }
 
-    exit(exit_code);
+    exit(EXIT_SUCCESS);
 }
-

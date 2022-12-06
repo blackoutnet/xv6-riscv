@@ -11,4 +11,3 @@
 #define INT_MAX 1 << (sizeof(int) * 8 - 1)
 
 #endif // _XV6_USER_DEFS_H_
-
