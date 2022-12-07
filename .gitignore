@@ -1,3 +1,4 @@
+# Build ignores
 *~
 _*
 *.o
@@ -5,6 +6,7 @@ _*
 *.asm
 *.sym
 *.img
+*.out
 vectors.S
 bootblock
 entryother
@@ -15,3 +17,7 @@ mkfs
 kernel/kernel
 user/usys.S
 .gdbinit
+
+# IDE ignores
+.vscode/
+.idea/
